@@ -36,13 +36,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+    
+    - name: Apt Update
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo apt update
+        
     - name: Free Disk Space
       uses: jlumbroso/free-disk-space@main
       with:
         tool-cache: true
         android: true
-        dotnet: true
+        # dotnet: true
         haskell: true
         large-packages: true
         docker-images: true
